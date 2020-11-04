@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import queryString from 'query-string';
+import Mood from './mood'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -44,14 +45,21 @@ export default class Home extends React.Component {
     const loggedIn = this.state.loggedIn
     return (
       <div>
-        welcome 2 moody music
+        welcome 2 moody music<br/>
         { loggedIn
-          ? <p>logged in</p>
+          ?
+          <Link to={{
+            pathname: '/mood',
+            state: { token: this.state.token }
+          }}>
+            <button>continue</button>
+          </Link> 
           :
-          <Link to="/login">
+          <Link to='/login'>
             <button>Login with Spotify</button>
           </Link>
         }
+
       </div>
     );
   }
