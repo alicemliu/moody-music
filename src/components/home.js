@@ -20,7 +20,6 @@ export default class Home extends React.Component {
 
     let params = queryString.parse(window.location.hash);
     let token = params.access_token
-    console.log(token)
 
     if (token) {
       console.log("if")
@@ -38,7 +37,6 @@ export default class Home extends React.Component {
         message: ""
       }));
     }
-    console.log(this.state)
   }
 
   render() {

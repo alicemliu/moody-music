@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+
+// import { isLogin } from './utils';
 
 export default class Mood extends React.Component {
   constructor(props) {
@@ -7,7 +9,8 @@ export default class Mood extends React.Component {
     console.log(this.props)
     this.state = {
       token: this.props.location.state.token,
-      artists: null
+      artists: null,
+      
     };
     
     // This binding is necessary to make `this` work in the callback
@@ -28,14 +31,15 @@ export default class Mood extends React.Component {
       }
     })
     .then((response) => {
+      console.log(response)
       if (!response.ok) throw Error(response.statusText);
       return response.json();
     })
     .then((data) => {
+      console.log("hell")
       console.log(data)
       let items = []
       data.items.map(function(artist) {
-        console.log(artist.name)
         // let item = $('<li>' + artist.name + '</li>');
         // item.appendTo($('#top-artists'));
         items.push(artist.name)
@@ -44,7 +48,10 @@ export default class Mood extends React.Component {
         artists: items
       }));
     })
-    .catch(error => console.log(error)); // eslint-disable-line no-console
+    .catch(error => {
+      console.log(error);
+      window.history.push("/error");
+    });
   }
 
   render() {

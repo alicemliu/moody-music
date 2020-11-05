@@ -1,8 +1,9 @@
 import './App.css';
 
-// import { ChildComponent } from "./components/auth";
 import Main from "./components/main";
 import Header from "./components/header";
+
+// import { StoreProvider } from "./store";
 
 function App() {
   return (
