@@ -6,6 +6,8 @@ export default class Playlist extends React.Component {
     this.state = {
       token: this.props.location.state.token
     };
+    console.log("hello")
+    console.log(this.props.location.state.token)
     
     // This binding is necessary to make `this` work in the callback
     this.getData = this.getData.bind(this);
