@@ -1,13 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-export default class Mood extends React.Component {
+export default class Playlist extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
-      token: this.props.location.state.token,
-      artists: null
+      token: this.props.location.state.token
     };
     
     // This binding is necessary to make `this` work in the callback
@@ -36,8 +33,6 @@ export default class Mood extends React.Component {
       let items = []
       data.items.map(function(artist) {
         console.log(artist.name)
-        // let item = $('<li>' + artist.name + '</li>');
-        // item.appendTo($('#top-artists'));
         items.push(artist.name)
       });
       this.setState(state => ({
@@ -51,13 +46,7 @@ export default class Mood extends React.Component {
     console.log(this.state.artists)
     return (
       <div>
-        {this.state.artists}
-        <Link to={{
-            pathname: '/playlist',
-            state: { token: this.state.token }
-          }}>
-            <button>continue</button>
-          </Link> 
+          {this.state.artists}
       </div>
     )
   }
