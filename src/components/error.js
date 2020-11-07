@@ -10,7 +10,9 @@ export default class Error extends React.Component {
   }
 
   componentDidMount() {
-    this.id = setTimeout(() => this.setState({ redirect: true }), 1000)
+    setTimeout(() => {
+      window.history.push('/login')
+    }, 10000)
   }
 
   componentWillUnmount() {

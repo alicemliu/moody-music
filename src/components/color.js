@@ -1,13 +1,22 @@
 import React from "react";
+import IroColorPicker from './iro'
+import { useHistory, Link } from "react-router-dom";
+import iro from '@jaames/iro';
 
-export default class Playlist extends React.Component {
+export default class Color extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       token: this.props.location.state.token,
       moodOption: this.props.location.state.moodOption,
       colorHex: null,
+      hue: null,
+      saturation: null,
+      value: null
     };
+    console.log("hello")
+    console.log(this.props.location.state)
+    console.log(this.props.location.state.moodOption)
     
     // This binding is necessary to make `this` work in the callback
     this.getData = this.getData.bind(this);
@@ -44,10 +53,34 @@ export default class Playlist extends React.Component {
   }
 
   render() {
+    let hex = "#fff";
+    let hsl = {
+      h: 0,
+      s: 0,
+      l: 100
+    }; 
     return (
       <div>
-          hello
-          {this.state.artists}
+          <IroColorPicker
+            color={ '#fff' }
+            onColorChange={ (color) => { 
+              hex = color.hexString;
+              hsl = color.hsl;
+              document.body.style.backgroundColor = hex;
+            } }
+          />
+
+          <Link to={{
+            pathname: '/playlist',
+            state: { 
+              token: this.state.token,
+              hsl: hsl
+            }
+          }}>
+            <button className="btn btn-default" type="submit">
+              Submit
+            </button>
+          </Link>
       </div>
     )
   }

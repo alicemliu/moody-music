@@ -8,6 +8,8 @@ import Login from './login';
 import Home from './home';
 import Mood from './mood';
 import Playlist from './playlist';
+import Color from './color';
+import Error from './error';
 
 
 // we need to map the `scale` prop we define below
@@ -62,6 +64,7 @@ const Main = () => {
       <Route exact path='/' component={Home}></Route>
       <Route exact path='/login' component={Login}></Route>
       <Route exact path='/mood' component={Mood}></Route>
+      <Route exact path='/color' component={Color}></Route>
       <Route exact path='/playlist' component={Playlist}></Route>
       <Route exact path='/error' component={Error}></Route>
     </AnimatedSwitch>

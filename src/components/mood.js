@@ -7,14 +7,48 @@ export default class Mood extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props)
+
+    let temp = ""
+    if (typeof this.props.location.state === 'undefined') {
+      this.props.history.push("/error");
+      return;
+    }
+    else {
+      temp = this.props.location.state.token
+    }
+    // else {
+    //   this.state = {
+    //     token: this.props.location.state.token,
+    //     artists: [],
+    //     moodOption: "",
+    //     isSelected: false
+    //   };
+    // }
+
     this.state = {
-      token: this.props.location.state.token,
-      artists: null,
-      
+      token: temp,
+      artists: [],
+      moodOption: "",
+      isSelected: false
     };
-    
+
     // This binding is necessary to make `this` work in the callback
     this.getData = this.getData.bind(this);
+    this.onValueChange = this.onValueChange.bind(this);
+    this.formSubmit = this.formSubmit.bind(this);
+  }
+
+  onValueChange(event) {
+    this.setState({
+      moodOption: event.target.value,
+      isSelected: true
+    });
+    console.log(event.target.value)
+  }
+
+  formSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.moodOption)
   }
 
   componentDidMount() {
@@ -31,13 +65,11 @@ export default class Mood extends React.Component {
       }
     })
     .then((response) => {
-      console.log(response)
+      //console.log(response)
       if (!response.ok) throw Error(response.statusText);
       return response.json();
     })
     .then((data) => {
-      console.log("hell")
-      console.log(data)
       let items = []
       data.items.map(function(artist) {
         // let item = $('<li>' + artist.name + '</li>');
@@ -50,21 +82,63 @@ export default class Mood extends React.Component {
     })
     .catch(error => {
       console.log(error);
-      window.history.push("/error");
+      this.props.history.push("/error");
     });
   }
 
   render() {
-    console.log(this.state.artists)
+
     return (
       <div>
-        {this.state.artists}
-        <Link to={{
-            pathname: '/playlist',
-            state: { token: this.state.token }
+        <form>
+          <div className="radio">
+            <label>
+              <input
+                type="radio"
+                value="Male"
+                checked={this.state.moodOption === "Male"}
+                onChange={this.onValueChange}
+              />
+              Male
+            </label>
+          </div>
+          <div className="radio">
+            <label>
+              <input
+                type="radio"
+                value="Female"
+                checked={this.state.moodOption === "Female"}
+                onChange={this.onValueChange}
+              />
+              Female
+            </label>
+          </div>
+          <div className="radio">
+            <label>
+              <input
+                type="radio"
+                value="Other"
+                checked={this.state.moodOption === "Other"}
+                onChange={this.onValueChange}
+              />
+              Other
+            </label>
+          </div>
+          <div>
+            Selected option is : {this.state.moodOption}
+          </div>
+          <Link to={{
+            pathname: '/color',
+            state: { 
+              token: this.state.token,
+              moodOption: this.state.moodOption
+            }
           }}>
-            <button>continue</button>
-          </Link> 
+            <button disabled={!this.state.isSelected} className="btn btn-default" type="submit">
+              Submit
+            </button>
+          </Link>
+        </form>
       </div>
     )
   }
