@@ -3,6 +3,7 @@ import React from "react";
 export default class Playlist extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.location.state)
     this.state = {
       token: this.props.location.state.token,
       moodOption: this.props.location.state.moodOption,

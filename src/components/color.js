@@ -26,6 +26,13 @@ export default class Color extends React.Component {
     this.getData()
   }
 
+  saveColor = async() => {
+    await this.setState({
+      color: window.getComputedStyle(document.body, null).backgroundColor
+    });
+    console.log(this.state.color)
+  }
+
   getData() {
     const api_url = "https://api.spotify.com/v1/me/top/artists"
 
@@ -42,7 +49,6 @@ export default class Color extends React.Component {
     .then((data) => {
       let items = []
       data.items.map(function(artist) {
-        console.log(artist.name)
         items.push(artist.name)
       });
       this.setState(state => ({
@@ -59,13 +65,23 @@ export default class Color extends React.Component {
       s: 0,
       l: 100
     }; 
+    let rbg = {
+      r: 0,
+      b: 0,
+      g: 0
+    }
     return (
       <div>
           <IroColorPicker
-            color={ '#fff' }
+            color={ "#fff" }
             onColorChange={ (color) => { 
+              // await this.setState({
+              //   color: color
+              // })
+              console.log(hex)
               hex = color.hexString;
-              hsl = color.hsl;
+              // hsl = color.hsl;
+              // rbg = color.rbg;
               document.body.style.backgroundColor = hex;
             } }
           />
@@ -74,7 +90,7 @@ export default class Color extends React.Component {
             pathname: '/playlist',
             state: { 
               token: this.state.token,
-              hsl: hsl
+              color: hex
             }
           }}>
             <button className="btn btn-default" type="submit">
