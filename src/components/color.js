@@ -1,7 +1,6 @@
 import React from "react";
-import IroColorPicker from './iro'
 import { useHistory, Link } from "react-router-dom";
-import iro from '@jaames/iro';
+import { CirclePicker, SliderPicker, HuePicker } from 'react-color';
 
 export default class Color extends React.Component {
   constructor(props) {
@@ -9,10 +8,9 @@ export default class Color extends React.Component {
     this.state = {
       token: this.props.location.state.token,
       moodOption: this.props.location.state.moodOption,
-      colorHex: null,
-      hue: null,
-      saturation: null,
-      value: null
+      hex: '#fff',
+      hsl: { h: 0, s: 0, l: 1 },
+      rgb: { r: 0, g: 0, b: 0 }
     };
     console.log("hello")
     console.log(this.props.location.state)
@@ -26,12 +24,14 @@ export default class Color extends React.Component {
     this.getData()
   }
 
-  saveColor = async() => {
-    await this.setState({
-      color: window.getComputedStyle(document.body, null).backgroundColor
+  handleChangeComplete = (color) => {
+    this.setState({ 
+      hex: color.hex,
+      hsl: color.hsl,
+      rgb: color.rgb
     });
-    console.log(this.state.color)
-  }
+    console.log(color.rgb)
+  };
 
   getData() {
     const api_url = "https://api.spotify.com/v1/me/top/artists"
@@ -55,42 +55,26 @@ export default class Color extends React.Component {
         artists: items
       }));
     })
-    .catch(error => console.log(error)); // eslint-disable-line no-console
+    .catch(error => {
+      this.props.history.push("/error");
+      console.log(error);
+    }); // eslint-disable-line no-console
   }
 
   render() {
-    let hex = "#fff";
-    let hsl = {
-      h: 0,
-      s: 0,
-      l: 100
-    }; 
-    let rbg = {
-      r: 0,
-      b: 0,
-      g: 0
-    }
     return (
-      <div>
-          <IroColorPicker
-            color={ "#fff" }
-            onColorChange={ (color) => { 
-              // await this.setState({
-              //   color: color
-              // })
-              console.log(hex)
-              hex = color.hexString;
-              // hsl = color.hsl;
-              // rbg = color.rbg;
-              document.body.style.backgroundColor = hex;
-            } }
+      <div style={{backgroundColor: this.state.hex}}>
+          <SliderPicker color={ this.state.hex }
+            onChange={ this.handleChangeComplete }
           />
 
           <Link to={{
             pathname: '/playlist',
             state: { 
               token: this.state.token,
-              color: hex
+              hex: this.state.hex,
+              hsl: this.state.hsl,
+              rgb: this.state.rgb
             }
           }}>
             <button className="btn btn-default" type="submit">

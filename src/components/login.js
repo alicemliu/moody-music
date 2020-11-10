@@ -30,7 +30,9 @@ export default class Login extends React.Component {
     const clientId = '3c6967b4c5d84ba9bb81d27d7d2f3f2f';
     const redirectUri = 'http://localhost:3000';
     const scopes = [
-      'user-top-read'
+      'user-top-read',
+      'playlist-modify-private',
+      'playlist-modify-public'
     ];
 
     // If there is no token, redirect to Spotify authorization
