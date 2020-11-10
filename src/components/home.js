@@ -19,6 +19,7 @@ export default class Home extends React.Component {
     // check for query params
 
     let params = queryString.parse(window.location.hash);
+    console.log("hello")
     let token = params.access_token
 
     if (token) {

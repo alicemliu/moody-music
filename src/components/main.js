@@ -11,7 +11,6 @@ import Playlist from './playlist';
 import Color from './color';
 import Error from './error';
 
-
 // we need to map the `scale` prop we define below
 // to the transform style property
 function mapStyles(styles) {

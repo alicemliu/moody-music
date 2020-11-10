@@ -28,7 +28,7 @@ export default class Login extends React.Component {
 
     // Replace with your app's client ID, redirect URI and desired scopes
     const clientId = '3c6967b4c5d84ba9bb81d27d7d2f3f2f';
-    const redirectUri = 'http://localhost:3000';
+    const redirectUri = 'http://localhost:3000/';
     const scopes = [
       'user-top-read',
       'playlist-modify-private',
