@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/moody-music/static/css/main.658a87a1.chunk.css",
-    "main.js": "/moody-music/static/js/main.cdeaa531.chunk.js",
-    "main.js.map": "/moody-music/static/js/main.cdeaa531.chunk.js.map",
+    "main.js": "/moody-music/static/js/main.0bf3aa2a.chunk.js",
+    "main.js.map": "/moody-music/static/js/main.0bf3aa2a.chunk.js.map",
     "runtime-main.js": "/moody-music/static/js/runtime-main.790c0632.js",
     "runtime-main.js.map": "/moody-music/static/js/runtime-main.790c0632.js.map",
-    "static/js/2.d3f0b7ca.chunk.js": "/moody-music/static/js/2.d3f0b7ca.chunk.js",
-    "static/js/2.d3f0b7ca.chunk.js.map": "/moody-music/static/js/2.d3f0b7ca.chunk.js.map",
+    "static/js/2.a71a1117.chunk.js": "/moody-music/static/js/2.a71a1117.chunk.js",
+    "static/js/2.a71a1117.chunk.js.map": "/moody-music/static/js/2.a71a1117.chunk.js.map",
     "static/js/3.7177e860.chunk.js": "/moody-music/static/js/3.7177e860.chunk.js",
     "static/js/3.7177e860.chunk.js.map": "/moody-music/static/js/3.7177e860.chunk.js.map",
     "index.html": "/moody-music/index.html",
     "static/css/main.658a87a1.chunk.css.map": "/moody-music/static/css/main.658a87a1.chunk.css.map",
-    "static/js/2.d3f0b7ca.chunk.js.LICENSE.txt": "/moody-music/static/js/2.d3f0b7ca.chunk.js.LICENSE.txt"
+    "static/js/2.a71a1117.chunk.js.LICENSE.txt": "/moody-music/static/js/2.a71a1117.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.790c0632.js",
-    "static/js/2.d3f0b7ca.chunk.js",
+    "static/js/2.a71a1117.chunk.js",
     "static/css/main.658a87a1.chunk.css",
-    "static/js/main.cdeaa531.chunk.js"
+    "static/js/main.0bf3aa2a.chunk.js"
   ]
 }
