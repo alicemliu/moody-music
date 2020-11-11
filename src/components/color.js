@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
-import { CirclePicker, SliderPicker, HuePicker } from 'react-color';
+import { SliderPicker, ChromePicker } from 'react-color';
 
 export default class Color extends React.Component {
   constructor(props) {
@@ -10,7 +10,8 @@ export default class Color extends React.Component {
       moodOption: this.props.location.state.moodOption,
       hex: '#fff',
       hsl: { h: 0, s: 0, l: 1 },
-      rgb: { r: 0, g: 0, b: 0 }
+      rgb: { r: 0, g: 0, b: 0 },
+      isSelected: false
     };
     console.log("hello")
     console.log(this.props.location.state)
@@ -28,7 +29,8 @@ export default class Color extends React.Component {
     this.setState({ 
       hex: color.hex,
       hsl: color.hsl,
-      rgb: color.rgb
+      rgb: color.rgb,
+      isSelected: true
     });
     console.log(color.rgb)
   };
@@ -63,9 +65,11 @@ export default class Color extends React.Component {
 
   render() {
     return (
-      <div style={{backgroundColor: this.state.hex}}>
-          <SliderPicker color={ this.state.hex }
+      // <div style={{ backgroundColor: this.state.hex }}>
+      <div>
+          <ChromePicker color={ this.state.hex }
             onChange={ this.handleChangeComplete }
+            disableAlpha = { true }
           />
 
           <Link to={{
@@ -77,7 +81,7 @@ export default class Color extends React.Component {
               rgb: this.state.rgb
             }
           }}>
-            <button className="btn btn-default" type="submit">
+            <button className="round_btn" type="submit" disabled={!this.state.isSelected}>
               Submit
             </button>
           </Link>

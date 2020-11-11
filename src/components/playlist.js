@@ -79,7 +79,13 @@ export default class Playlist extends React.Component {
     const create_playlist_api = "https://api.spotify.com/v1/users/" + this.state.userId + "/playlists"
     const add_tracks_api = "https://api.spotify.com/v1/playlists/{playlist_id}/tracks/"
 
-    fetch(recommendations_api, { 
+    let energy = this.state.hsl.s
+    let valence = this.state.rgb.g / 225
+
+    console.log(energy)
+    console.log(valence)
+
+    fetch(recommendations_api + "&target_energy=" + energy + "&target_valence=" + valence, { 
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + this.state.token
@@ -146,9 +152,7 @@ export default class Playlist extends React.Component {
   render() {
     return (
       <div>
-          hello
-          {this.state.artistQuery}
-          <button onClick={this.getPlaylist}>get playlist</button>
+          <button class='round_btn' onClick={this.getPlaylist}>get playlist</button>
           {this.state.playlistURI}
       </div>
     )

@@ -1,0 +1,79 @@
+/* reusable components e.g. buttons, titles, etc. */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.title {
+  font-family: 'Comfortaa', cursive;
+  color: #ea4111;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+  background: linear-gradient(270deg, #1889A0, #b71ad4, #ea4111);
+  background-size: 600% 600%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbowGradient 7s ease infinite;
+  animation: rainbowGradient 7s ease infinite;
+}
+
+.subtitle {
+  font-family: 'Comfortaa', cursive;
+  color: #1B7466;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.body-text {
+  font-family: 'Montserrat', cursive;
+  color: black;
+  font-size: 1rem;
+}
+
+.body-text a {
+  color: #1B7466;
+  text-decoration: none;
+  transition: .4s;
+}
+
+.body-text a:hover {
+  text-decoration: underline;
+}
+
+@-webkit-keyframes rainbowGradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes rainbowGradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.round_btn {
+  font-family: 'Montserrat', cursive;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  text-decoration: none;
+  background-color: #1B7466;
+  color: white;
+  border: solid 2px #1B7466;
+  transition: .4s;
+}
+
+.round_btn:hover {
+  background: #0a2925;
+  border: solid 2px #0a2925;
+  color: white;
+}
+
+.round_btn:disabled {
+  background: #4d4d4d;
+  border: solid 2px #4d4d4d;
+}

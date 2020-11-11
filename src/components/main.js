@@ -2,8 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { spring, AnimatedSwitch } from 'react-router-transition';
 
-import '../css/main.css';
+import '../css/index.css';
 
+import About from './about';
 import Login from './login';
 import Home from './home';
 import Mood from './mood';
@@ -61,6 +62,7 @@ const Main = () => {
       className="switch-wrapper"
     >
       <Route exact path='/' component={Home}></Route>
+      <Route exact path='/about' component={About}></Route>
       <Route exact path='/login' component={Login}></Route>
       <Route exact path='/mood' component={Mood}></Route>
       <Route exact path='/color' component={Color}></Route>

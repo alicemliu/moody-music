@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import queryString from 'query-string';
 import Mood from './mood'
+
+import '../css/app.css';
+import '../css/index.css';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -43,22 +46,26 @@ export default class Home extends React.Component {
   render() {
     const loggedIn = this.state.loggedIn
     return (
-      <div>
-        welcome 2 moody music<br/>
+      <div class="content">
+        <span class="title">moody music</span>
+        <br/>
+        <br/>
+        <span class="body-text">
+          Personalized playlist generator using colors.<br/>
+        </span>
+        <br/>
+        <br/>
         { loggedIn
           ?
-          <Link to={{
-            pathname: '/mood',
+          <Redirect to={{
+            pathname: '/color',
             state: { token: this.state.token }
-          }}>
-            <button>continue</button>
-          </Link> 
+          }}/>
           :
           <Link to='/login'>
-            <button>Login with Spotify</button>
+            <button class="round_btn">Login with Spotify</button>
           </Link>
         }
-
       </div>
     );
   }
