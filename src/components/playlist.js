@@ -116,9 +116,8 @@ componentDidMount() {
     let embedURI = "https://open.spotify.com/embed/playlist/" + this.state.playlistId;
     return (
       <div className="content">
-        <span className='title'>you're feeling: </span>
-        <span className='title-no-color' style={{color: this.state.hex}}>{this.state.hex}</span>
-        <br/><br/>
+        <div className='title'>you're feeling: </div>
+        <div className='title-no-color' style={{color: this.state.hex}}>{this.state.hex}</div>
         <div>
           <iframe src={embedURI} id="embed" title="Embeded Spotify Playlist" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>

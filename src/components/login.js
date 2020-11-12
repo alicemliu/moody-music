@@ -1,4 +1,5 @@
 import React from "react";
+import { CLIENTID, REDIRECTURL } from '../config.js'
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -25,8 +26,8 @@ export default class Login extends React.Component {
     const authEndpoint = 'https://accounts.spotify.com/authorize';
 
     // Replace with your app's client ID, redirect URI and desired scopes
-    const clientId = '5230258282ca42bfb5ab68558b0a4f27';
-    const redirectUri = 'https://moodymusicapp.herokuapp.com/';
+    const clientId = CLIENTID;
+    const redirectUri = REDIRECTURL;
     const scopes = [
       'user-top-read',
       'playlist-modify-private',
