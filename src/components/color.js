@@ -46,7 +46,7 @@ export default class Color extends React.Component {
     .then((data) => {
       let items = []
       let query = ''
-      data.items.map(function(artist) {
+      data.items.forEach(function(artist) {
         items.push(artist.name);
         query = query + artist.id + ',';
       });
@@ -96,8 +96,8 @@ export default class Color extends React.Component {
 
   render() {
     return (
-      <div class='content'>
-          <div class='title'>what color are you feeling?</div>
+      <div className='content'>
+          <div className='title'>what color are you feeling?</div>
           The color you pick affects the mood of the generated playlist, along with your listening history.<br/><br/><br/>
 
 

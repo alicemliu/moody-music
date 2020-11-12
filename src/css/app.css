@@ -30,7 +30,7 @@
   font-family: 'Comfortaa', sans-serif;
   color: #1B7466;
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -38,6 +38,8 @@
   font-family: 'Montserrat', DejaVu Sans, Verdana, sans-serif;
   color: black;
   font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .body-text a {
@@ -72,8 +74,8 @@
   color: white;
   border: solid 2px #1B7466;
   transition: .4s;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   margin-right: 0.5rem;
 }
 

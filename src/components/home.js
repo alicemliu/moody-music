@@ -17,7 +17,6 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     let params = queryString.parse(window.location.hash);
-    console.log("hello")
     let token = params.access_token
 
     if (token) {
@@ -39,13 +38,11 @@ export default class Home extends React.Component {
   render() {
     const loggedIn = this.state.loggedIn
     return (
-      <div class="content">
-        <span class="title">moody music 🎶</span>
-        <br/>
-        <br/>
-        <span class="body-text">
+      <div className="content">
+        <div className="title">moody music 🎶</div>
+        <div className="body-text">
           A colorful, personalized playlist generator.<br/>
-        </span>
+        </div>
 
         { loggedIn
           ?
@@ -55,7 +52,7 @@ export default class Home extends React.Component {
           }}/>
           :
           <Link to='/login'>
-            <button class="round_btn">Login with Spotify</button>
+            <button className="round_btn">Login with Spotify</button>
           </Link>
         }
       </div>
