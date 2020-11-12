@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 
 .header {
-  font-family: 'Montserrat', cursive;
+  font-family: 'Montserrat', DejaVu Sans, Verdana, sans-serif;
   overflow: auto;
   padding-top: 2rem;
   padding-bottom: 2rem;

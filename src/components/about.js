@@ -9,7 +9,6 @@ export default class About extends React.Component {
   }
 
   render() {
-    const loggedIn = this.state.loggedIn
     return (
       <div class="content">
         <div class="title">about</div>

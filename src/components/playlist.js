@@ -3,18 +3,31 @@ import React from "react";
 export default class Playlist extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      token: this.props.location.state.token,
-      moodOption: this.props.location.state.moodOption,
-      artists: [],
-      hex: this.props.location.state.hex,
-      hsl: this.props.location.state.hsl,
-      rgb: this.props.location.state.rgb,
-      artists: this.props.location.state.artists,
-      artistQuery: this.props.location.state.artistQuery,
-      userId: this.props.location.state.userId
-    };
-    // This binding is necessary to make `this` work in the callback
+    if (typeof this.props.location.state === 'undefined') {
+      this.props.history.push("/error");
+      this.state = {
+        token: '',
+        moodOption: '',
+        artists: [],
+        hex: '#ffffff',
+        hsl: { h: 0, s: 0, l: 1 },
+        rgb: { r: 0, g: 0, b: 0 },
+        artistQuery: '',
+        userId: ''
+      };
+    }
+    else {
+      this.state = {
+        token: this.props.location.state.token,
+        moodOption: this.props.location.state.moodOption,
+        hex: this.props.location.state.hex,
+        hsl: this.props.location.state.hsl,
+        rgb: this.props.location.state.rgb,
+        artists: this.props.location.state.artists,
+        artistQuery: this.props.location.state.artistQuery,
+        userId: this.props.location.state.userId
+      };
+    }
     
     this.getPlaylist = this.getPlaylist.bind(this);
   }

@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .title {
-  font-family: 'Comfortaa', cursive;
+  font-family: Comfortaa, sans-serif;
   color: #ea4111;
   font-size: 3rem;
   margin-top: 1rem;
@@ -20,14 +20,14 @@
 }
 
 .title-no-color {
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', sans-serif;
   font-size: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .subtitle {
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', sans-serif;
   color: #1B7466;
   font-size: 1.5rem;
   margin-top: 2rem;
@@ -35,7 +35,7 @@
 }
 
 .body-text {
-  font-family: 'Montserrat', cursive;
+  font-family: 'Montserrat', DejaVu Sans, Verdana, sans-serif;
   color: black;
   font-size: 1rem;
 }
@@ -62,7 +62,7 @@
 }
 
 .round_btn {
-  font-family: 'Montserrat', cursive;
+  font-family: 'Montserrat', DejaVu Sans, Verdana, sans-serif;
   font-size: 1rem;
   display: inline-block;
   padding: 0.5em 1em;

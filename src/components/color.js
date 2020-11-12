@@ -5,10 +5,17 @@ import { ChromePicker } from 'react-color';
 export default class Color extends React.Component {
   constructor(props) {
     super(props);
+    let token = ''
+    if (typeof this.props.location.state === 'undefined') {
+      this.props.history.push("/error");
+    }
+    else {
+      token = this.props.location.state.token;
+    }
     this.state = {
-      token: this.props.location.state.token,
-      moodOption: this.props.location.state.moodOption,
-      hex: '#fff',
+      token: token,
+      // moodOption: this.props.location.state.moodOption,
+      hex: '#ffffff',
       hsl: { h: 0, s: 0, l: 1 },
       rgb: { r: 0, g: 0, b: 0 },
       isSelected: false
