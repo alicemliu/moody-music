@@ -25,8 +25,8 @@ export default class Login extends React.Component {
     const authEndpoint = 'https://accounts.spotify.com/authorize';
 
     // Replace with your app's client ID, redirect URI and desired scopes
-    const clientId = '3c6967b4c5d84ba9bb81d27d7d2f3f2f';
-    const redirectUri = 'http://localhost:3000/';
+    const clientId = '5230258282ca42bfb5ab68558b0a4f27';
+    const redirectUri = 'https://moodymusicapp.herokuapp.com/';
     const scopes = [
       'user-top-read',
       'playlist-modify-private',
