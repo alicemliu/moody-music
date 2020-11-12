@@ -19,7 +19,7 @@ export default class Error extends React.Component {
 
   render() {
     return (
-      <div class='content'>
+      <div className='content'>
         { this.state.redirect
           ? 
           <div>
@@ -27,10 +27,9 @@ export default class Error extends React.Component {
           </div>
           : 
           <div>
-            <span class="subtitle">Authentication timed out!<br/>Redirecting you to login...</span>
-            <br/>
+            <div className="subtitle">Authentication timed out!<br/>Redirecting you to login...</div>
             <Link to='/'>
-              <button class="round_btn">Return to Homepage</button>
+              <button className="round_btn">Return to Homepage</button>
             </Link>
           </div>
         }

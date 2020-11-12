@@ -39,7 +39,6 @@ componentDidMount() {
   getPlaylist() {
     const recommendations_api = "https://api.spotify.com/v1/recommendations?limit=20&seed_artists=" + this.state.artistQuery
     const create_playlist_api = "https://api.spotify.com/v1/users/" + this.state.userId + "/playlists"
-    const add_tracks_api = "https://api.spotify.com/v1/playlists/{playlist_id}/tracks/"
 
     let energy = this.state.hsl.s
     let valence = this.state.rgb.g / 225
@@ -56,7 +55,7 @@ componentDidMount() {
     })
     .then((data) => {
       let songs = ''
-      data.tracks.map(function(song) {
+      data.tracks.forEach(function(song) {
         songs = songs + song.uri + ','
       });
       this.setState({
@@ -116,14 +115,14 @@ componentDidMount() {
   render() {
     let embedURI = "https://open.spotify.com/embed/playlist/" + this.state.playlistId;
     return (
-      <div class="content">
-        <span class='title'>you're feeling: </span>
-        <span class='title-no-color' style={{color: this.state.hex}}>{this.state.hex}</span>
+      <div className="content">
+        <span className='title'>you're feeling: </span>
+        <span className='title-no-color' style={{color: this.state.hex}}>{this.state.hex}</span>
         <br/><br/>
         <div>
-          <iframe src={embedURI} id="embed" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <iframe src={embedURI} id="embed" title="Embeded Spotify Playlist" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
-        <a href={this.state.playlistURI} class='round_btn'>Open in Spotify</a>
+        <a href={this.state.playlistURI} className='round_btn'>Open in Spotify</a>
       </div>
     )
   }
