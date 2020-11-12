@@ -10,68 +10,18 @@ export default class Playlist extends React.Component {
       artists: [],
       hex: this.props.location.state.hex,
       hsl: this.props.location.state.hsl,
-      rgb: this.props.location.state.rgb
+      rgb: this.props.location.state.rgb,
+      artists: this.props.location.state.artists,
+      artistQuery: this.props.location.state.artistQuery,
+      userId: this.props.location.state.userId
     };
     // This binding is necessary to make `this` work in the callback
-    this.getTopArtists = this.getTopArtists.bind(this);
-    this.getUser = this.getUser.bind(this);
+    
     this.getPlaylist = this.getPlaylist.bind(this);
   }
 
-  componentDidMount() {
-    this.getUser();
-    // const artists = await this.getTopArtists();
-    this.getTopArtists();
-  }
-
-  getTopArtists() {
-    const api_url = "https://api.spotify.com/v1/me/top/artists?limit=5"
-
-    fetch(api_url, { 
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + this.state.token
-      }
-    })
-    .then((response) => {
-      if (!response.ok) throw Error(response.statusText);
-      return response.json();
-    })
-    .then((data) => {
-      let items = []
-      let query = ''
-      data.items.map(function(artist) {
-        items.push(artist.name);
-        query = query + artist.id + ',';
-      });
-      this.setState(state => ({
-        artists: items,
-        artistQuery: query
-      }));
-    })
-    .catch(error => console.log(error)); // eslint-disable-line no-console
-  }
-
-  getUser() {
-    const api_url = "https://api.spotify.com/v1/me"
-
-    fetch(api_url, { 
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + this.state.token
-      }
-    })
-    .then((response) => {
-      if (!response.ok) throw Error(response.statusText);
-      return response.json();
-    })
-    .then((data) => {
-      this.setState(state => ({
-        userId: data.id
-      }));
-      console.log(data.id)
-    })
-    .catch(error => console.log(error)); // eslint-disable-line no-console
+componentDidMount() {
+    this.getPlaylist()
   }
 
   getPlaylist() {
@@ -117,7 +67,6 @@ export default class Playlist extends React.Component {
           "description": "New playlist description",
           "public": false
         })
-        // body: "{\"name\":\"New Playlist\",\"description\":\"New playlist description\",\"public\":false}"
       })
       .then((response) => {
         console.log(response);
@@ -125,13 +74,14 @@ export default class Playlist extends React.Component {
         return response.json();
       })
       .then((data) => {
+        console.log(data)
         this.setState({
-          playlistURI: data.external_urls.spotify
+          playlistURI: data.external_urls.spotify,
+          playlistId: data.id
         });
         return data.id
       })
       .then((playlistId) => {
-        console.log(encodeURI("https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?uris=" + this.state.songs))
         fetch("https://api.spotify.com/v1/playlists/" + playlistId + "/tracks?uris=" + this.state.songs, {
           method: 'POST',
           headers: {
@@ -142,18 +92,33 @@ export default class Playlist extends React.Component {
           console.log(response);
           if (!response.ok) throw Error(response);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          console.log(error);
+          this.props.history.push("/error");
+        });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        this.props.history.push("/error");
+      });
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error);
+      this.props.history.push("/error");
+    });
   }
 
   render() {
+    let embedURI = "https://open.spotify.com/embed/playlist/" + this.state.playlistId;
     return (
-      <div>
-          <button class='round_btn' onClick={this.getPlaylist}>get playlist</button>
-          {this.state.playlistURI}
+      <div class="content">
+        <span class='title'>you're feeling: </span>
+        <span class='title-no-color' style={{color: this.state.hex}}>{this.state.hex}</span>
+        <br/><br/>
+        <div>
+          <iframe src={embedURI} id="embed" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+        <a href={this.state.playlistURI} class='round_btn'>Open in Spotify</a>
       </div>
     )
   }

@@ -47,14 +47,13 @@ export default class Home extends React.Component {
     const loggedIn = this.state.loggedIn
     return (
       <div class="content">
-        <span class="title">moody music</span>
+        <span class="title">moody music 🎶</span>
         <br/>
         <br/>
         <span class="body-text">
-          Personalized playlist generator using colors.<br/>
+          A colorful, personalized playlist generator.<br/>
         </span>
-        <br/>
-        <br/>
+
         { loggedIn
           ?
           <Redirect to={{

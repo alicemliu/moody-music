@@ -44,7 +44,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-        authorizing...
+        <span class="subtitle">Authorizing...</span>
       </div>
     );
   }

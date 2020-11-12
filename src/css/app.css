@@ -7,7 +7,7 @@
   font-family: 'Comfortaa', cursive;
   color: #ea4111;
   font-size: 3rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 
   background: linear-gradient(270deg, #1889A0, #b71ad4, #ea4111);
@@ -17,6 +17,13 @@
   -webkit-text-fill-color: transparent;
   -webkit-animation: rainbowGradient 7s ease infinite;
   animation: rainbowGradient 7s ease infinite;
+}
+
+.title-no-color {
+  font-family: 'Comfortaa', cursive;
+  font-size: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .subtitle {
@@ -65,6 +72,9 @@
   color: white;
   border: solid 2px #1B7466;
   transition: .4s;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-right: 0.5rem;
 }
 
 .round_btn:hover {
@@ -76,4 +86,20 @@
 .round_btn:disabled {
   background: #4d4d4d;
   border: solid 2px #4d4d4d;
+}
+
+.icons {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.icons a {
+  color: #1B7466;
+  transition: .4s;
+  padding-right: 0.5rem;
+}
+
+.icons a:hover {
+  color: #0a2925;
 }

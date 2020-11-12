@@ -7,8 +7,9 @@
 .header {
   font-family: 'Montserrat', cursive;
   overflow: auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  flex: none;
 }
 
 /* Style the header links */
@@ -18,7 +19,7 @@
   text-align: center;
   padding: 0.6rem;
   text-decoration: none;
-  font-size: 1.3rem; 
+  font-size: 1.5rem; 
   transition: .4s;
 }
 

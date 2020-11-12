@@ -1,8 +1,6 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
 
-// import { isLogin } from './utils';
-
 export default class Mood extends React.Component {
   constructor(props) {
     super(props);

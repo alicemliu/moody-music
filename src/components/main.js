@@ -51,16 +51,17 @@ const bounceTransition = {
 const Main = () => {
 
   return (
-    <AnimatedSwitch
-      atEnter={{ opacity: 0 }}
-      atLeave={{ opacity: 0 }}
-      atActive={{ opacity: 1 }}
-      // atEnter={bounceTransition.atEnter}
-      // atLeave={bounceTransition.atLeave}
-      // atActive={bounceTransition.atActive}
-      // mapStyles={mapStyles}
-      className="switch-wrapper"
-    >
+    // <AnimatedSwitch
+    //   atEnter={{ opacity: 0 }}
+    //   atLeave={{ opacity: 0 }}
+    //   atActive={{ opacity: 1 }}
+    //   // atEnter={bounceTransition.atEnter}
+    //   // atLeave={bounceTransition.atLeave}
+    //   // atActive={bounceTransition.atActive}
+    //   // mapStyles={mapStyles}
+    //   className="switch-wrapper"
+    // >
+    <Switch className="switch-wrapper">
       <Route exact path='/' component={Home}></Route>
       <Route exact path='/about' component={About}></Route>
       <Route exact path='/login' component={Login}></Route>
@@ -68,7 +69,7 @@ const Main = () => {
       <Route exact path='/color' component={Color}></Route>
       <Route exact path='/playlist' component={Playlist}></Route>
       <Route exact path='/error' component={Error}></Route>
-    </AnimatedSwitch>
+    </Switch>
   );
 }
 

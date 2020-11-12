@@ -24,12 +24,13 @@ export default class About extends React.Component {
 
         <div class="body-text">
           Moody Music is a web app that uses color to generate a personalized playlist based on your Spotify listening history.<br/><br/>
-          It is created by Alice Liu, and the complete source code can be found <a href="https://github.com/alicemliu/moody-music">here</a>.
+          Created by <a href="https://alicemliu.github.io">Alice Liu</a>. The source code can be found <a href="https://github.com/alicemliu/moody-music">here</a>.
         </div>
         
         <div class="subtitle">technology</div>
         <div class="body-text">
-          Moody Music is build with <a href="https://create-react-app.dev/">create-react-app</a> and <a href="https://developer.spotify.com/documentation/web-api/">Spotify's Web API</a>. It runs completely client-side and is deployed on Heroku. Design elements are also compliant with <a href="https://www.w3.org/WAI/WCAG2AA-Conformance.html">WCAG 2.0 Level AA</a> accessibility standards.
+          Moody Music is build with <a href="https://create-react-app.dev/">create-react-app</a> and <a href="https://developer.spotify.com/documentation/web-api/">Spotify's Web API</a>. It runs completely client-side and is deployed on Heroku.<br/><br/>
+          Although I used Spotify's API, I'm not affiliated with Spotify.
         </div>
 
         <div class="subtitle">privacy</div>

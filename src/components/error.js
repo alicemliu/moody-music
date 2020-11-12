@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 export default class Error extends React.Component {
   constructor(props) {
@@ -10,9 +10,7 @@ export default class Error extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      window.history.push('/login')
-    }, 10000)
+    this.id = setTimeout(() => this.setState({ redirect: true }), 1000)
   }
 
   componentWillUnmount() {
@@ -22,8 +20,23 @@ export default class Error extends React.Component {
   render() {
     return (
       <div>
-          authentication error, redirecting you to login...
+        <span class="subtitle">Authentication timed out!<br/>Redirecting you to login...</span>
+        {this.state.redirect
+          ? 
+          <div>
           <Redirect to="/login"/>
+          </div>
+          : 
+          <div>
+            <br/>
+            <span class="subtitle">Oops! Something unexpected happened.</span>
+            <br/>
+            <Link to='/'>
+              <button class="round_btn">Return to Homepage</button>
+            </Link>
+          </div>
+        }
+          
       </div>
     )
   }
