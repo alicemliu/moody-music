@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { spring, AnimatedSwitch } from 'react-router-transition';
+// import { spring, AnimatedSwitch } from 'react-router-transition';
 
 import '../css/index.css';
 
