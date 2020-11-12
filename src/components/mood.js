@@ -1,10 +1,9 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Mood extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
 
     let temp = ""
     if (typeof this.props.location.state === 'undefined') {
@@ -14,15 +13,6 @@ export default class Mood extends React.Component {
     else {
       temp = this.props.location.state.token
     }
-    // else {
-    //   this.state = {
-    //     token: this.props.location.state.token,
-    //     artists: [],
-    //     moodOption: "",
-    //     isSelected: false
-    //   };
-    // }
-
     this.state = {
       token: temp,
       artists: [],
@@ -30,7 +20,6 @@ export default class Mood extends React.Component {
       isSelected: false
     };
 
-    // This binding is necessary to make `this` work in the callback
     this.getData = this.getData.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
@@ -63,15 +52,12 @@ export default class Mood extends React.Component {
       }
     })
     .then((response) => {
-      //console.log(response)
       if (!response.ok) throw Error(response.statusText);
       return response.json();
     })
     .then((data) => {
       let items = []
       data.items.map(function(artist) {
-        // let item = $('<li>' + artist.name + '</li>');
-        // item.appendTo($('#top-artists'));
         items.push(artist.name)
       });
       this.setState(state => ({

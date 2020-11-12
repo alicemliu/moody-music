@@ -4,8 +4,6 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {token: ""};
-
-    // This binding is necessary to make `this` work in the callback
   }
 
   componentDidMount() {

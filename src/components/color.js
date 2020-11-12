@@ -1,6 +1,6 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
-import { SliderPicker, ChromePicker } from 'react-color';
+import { Link } from "react-router-dom";
+import { ChromePicker } from 'react-color';
 
 export default class Color extends React.Component {
   constructor(props) {
@@ -13,11 +13,7 @@ export default class Color extends React.Component {
       rgb: { r: 0, g: 0, b: 0 },
       isSelected: false
     };
-    console.log("hello")
-    console.log(this.props.location.state)
-    console.log(this.props.location.state.moodOption)
-    
-    // This binding is necessary to make `this` work in the callback
+
     this.getTopArtists = this.getTopArtists.bind(this);
     this.getUser = this.getUser.bind(this);
   }
@@ -75,7 +71,6 @@ export default class Color extends React.Component {
       this.setState(state => ({
         userId: data.id
       }));
-      console.log(data.id)
     })
     .catch(error => {
       console.log(error);
@@ -90,11 +85,9 @@ export default class Color extends React.Component {
       rgb: color.rgb,
       isSelected: true
     });
-    console.log(color.rgb)
   };
 
   render() {
-    console.log(this.state.artistQuery)
     return (
       <div class='content'>
           <div class='title'>what color are you feeling?</div>

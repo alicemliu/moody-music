@@ -3,7 +3,6 @@ import React from "react";
 export default class Playlist extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.location.state)
     this.state = {
       token: this.props.location.state.token,
       moodOption: this.props.location.state.moodOption,
@@ -32,9 +31,6 @@ componentDidMount() {
     let energy = this.state.hsl.s
     let valence = this.state.rgb.g / 225
 
-    console.log(energy)
-    console.log(valence)
-
     fetch(recommendations_api + "&target_energy=" + energy + "&target_valence=" + valence, { 
       method: 'GET',
       headers: {
@@ -42,7 +38,6 @@ componentDidMount() {
       }
     })
     .then((response) => {
-      console.log(response);
       if (!response.ok) throw Error(response);
       return response.json();
     })
@@ -69,12 +64,10 @@ componentDidMount() {
         })
       })
       .then((response) => {
-        console.log(response);
         if (!response.ok) throw Error(response);
         return response.json();
       })
       .then((data) => {
-        console.log(data)
         this.setState({
           playlistURI: data.external_urls.spotify,
           playlistId: data.id
@@ -89,7 +82,6 @@ componentDidMount() {
           }
         })
         .then((response) => {
-          console.log(response);
           if (!response.ok) throw Error(response);
         })
         .catch(error => {

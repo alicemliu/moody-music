@@ -1,6 +1,4 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
-import queryString from 'query-string';
 
 import '../css/app.css';
 import '../css/index.css';
@@ -8,12 +6,6 @@ import '../css/index.css';
 export default class About extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
-  }
-
-  componentDidMount() {
-    
   }
 
   render() {

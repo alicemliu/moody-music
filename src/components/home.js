@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import queryString from 'query-string';
-import Mood from './mood'
 
 import '../css/app.css';
 import '../css/index.css';
@@ -14,13 +13,9 @@ export default class Home extends React.Component {
       loggedIn: false,
       message: "Log in with Spotify to get started!"
     };
-
-    // This binding is necessary to make `this` work in the callback
   }
 
   componentDidMount() {
-    // check for query params
-
     let params = queryString.parse(window.location.hash);
     console.log("hello")
     let token = params.access_token

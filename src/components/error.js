@@ -27,7 +27,7 @@ export default class Error extends React.Component {
           <Redirect to="/login"/>
           </div>
           : 
-          <div>
+          <div class='content'>
             <br/>
             <span class="subtitle">Oops! Something unexpected happened.</span>
             <br/>

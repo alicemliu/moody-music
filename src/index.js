@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import './css/app.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-import { HashRouter, BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <App />
