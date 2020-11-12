@@ -21,7 +21,6 @@ export default class Home extends React.Component {
     let token = params.access_token
 
     if (token) {
-      console.log("if")
       this.setState(state => ({
         token: token,
         loggedIn: true,
@@ -29,7 +28,6 @@ export default class Home extends React.Component {
       }));
     }
     else {
-      console.log("else")
       this.setState(state => ({
         token: token,
         loggedIn: false,

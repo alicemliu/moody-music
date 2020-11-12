@@ -72,7 +72,7 @@ componentDidMount() {
         },
         body: JSON.stringify({
           "name": this.state.hex,
-          "description": "New playlist description",
+          "description": "Playlist created by Moody Music.",
           "public": false
         })
       })

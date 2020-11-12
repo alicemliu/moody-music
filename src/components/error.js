@@ -19,16 +19,14 @@ export default class Error extends React.Component {
 
   render() {
     return (
-      <div>
-        
+      <div class='content'>
         { this.state.redirect
           ? 
           <div>
             <Redirect to="/login"/>
           </div>
           : 
-          <div class='content'>
-            <br/>
+          <div>
             <span class="subtitle">Authentication timed out!<br/>Redirecting you to login...</span>
             <br/>
             <Link to='/'>
@@ -36,7 +34,6 @@ export default class Error extends React.Component {
             </Link>
           </div>
         }
-          
       </div>
     )
   }

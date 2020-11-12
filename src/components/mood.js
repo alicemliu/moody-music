@@ -30,7 +30,6 @@ export default class Mood extends React.Component {
       moodOption: event.target.value,
       isSelected: true
     });
-    console.log(event.target.value)
   }
 
   formSubmit(event) {
