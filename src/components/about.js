@@ -17,7 +17,7 @@ export default class About extends React.Component {
         
         <div className="subtitle">technology</div>
         <div className="body-text">
-          Moody Music is build with <a href="https://create-react-app.dev/">create-react-app</a> and <a href="https://developer.spotify.com/documentation/web-api/">Spotify's Web API</a>. It runs completely client-side and is deployed on Heroku.<br/><br/>
+          Moody Music is built with <a href="https://create-react-app.dev/">create-react-app</a> and <a href="https://developer.spotify.com/documentation/web-api/">Spotify's Web API</a>. It runs completely client-side and is deployed on Heroku.<br/><br/>
           Although I used Spotify's API, I'm not affiliated with Spotify.
         </div>
 
